@@ -652,9 +652,9 @@ window.addEvent('load', function() {
                     }
                     if (response['torrents']) {
                         let updateTorrentList = false;
-			//if (typeof window.qBittorrent.TransfersGraph != 'undefined') {
-			//	window.qBittorrent.TransfersGraph.updateTorrentStatus(response['torrents']);
-			//}
+			if (typeof window.qBittorrent.TransfersGraph != 'undefined') {
+				window.qBittorrent.TransfersGraph.updateTorrentStatus(response['torrents']);
+			}
                         for (const key in response['torrents']) {
                             response['torrents'][key]['hash'] = key;
                             response['torrents'][key]['rowId'] = key;
