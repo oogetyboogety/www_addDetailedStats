@@ -1,0 +1,43 @@
+<script>
+    'use strict';
+
+    if (window.qBittorrent === undefined) {
+        window.qBittorrent = {};
+    }
+
+    window.qBittorrent.TransfersGraph = (function() {
+        const exports = function() {
+            return {
+		 init: init,
+		 load: load,
+		 unload: unload,
+		 updateTorrentStatus: updateTorrentStatus,
+            };
+        };
+        const init = function() {
+	    console.log("init");
+	};
+	const load = function() {
+	    console.log("load");
+	}
+	const unload = function() {
+	    console.log("unload");
+	}
+	const updateTorrentStatus = function(torrentStatus) {
+	    console.log(torrentStatus);
+		if(document.getElementById("psp").contentWindow.perspectiveViews.TransfersGraph.logger !== false) {
+	    console.log(document.getElementById("psp").contentWindow.perspectiveViews.TransfersGraph.logger );
+	    document.getElementById("psp").contentWindow.perspectiveViews.TransfersGraph.logger.update([torrentStatus[Object.keys(torrentStatus)[0]]]);
+		}
+	    //el.appendChild(document.createTextNode(JSON.stringify(torrentStatus))); 
+	}
+
+
+        return exports();
+    })();
+</script>
+<div class="mootools-noconflict" id="LogTable">
+
+	<iframe id="psp" src="views/perspectiveviewer.html">
+	</iframe>
+</div>

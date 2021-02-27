@@ -1,0 +1,21 @@
+
+
+
+		<head>
+
+    <script src="../scripts/lib/perspective.js"></script>
+    <script src="../scripts/lib/perspective-viewer.js"></script>
+    <script> 
+	window.perspectiveViews = new Object();
+	window.perspectiveViews.TransfersGraph = {"logger": false, "view": false} ;
+	document.addEventListener("WebComponentsReady", function() {
+		window.perspectiveViews.TransfersGraph.logger = window.perspective.worker().table({hash: [0], rowId: [0], last_activity: [0]});
+		window.perspectiveViews.TransfersGraph.view = window.perspectiveViews.TransfersGraph.logger.view();
+	    let psp = document.createElement("perspective-viewer");
+	    document.body.appendChild(psp);
+	    psp.load(window.perspectiveViews.TransfersGraph.logger);
+	});
+    </script>
+		</head>
+		<body>
+		</body>
